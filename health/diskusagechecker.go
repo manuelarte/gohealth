@@ -13,9 +13,11 @@ type DiskStatus struct {
 
 type DiskStatusChecker struct{}
 
+var fsStats = syscall.Statfs
+
 func (a *DiskStatusChecker) CheckHealth() (result HealthCheckResult) {
 	fs := syscall.Statfs_t{}
-	if err := syscall.Statfs("/", &fs); err != nil {
+	if err := fsStats("/", &fs); err != nil {
 		return HandleHealthcheckError(diskServiceName, err)
 	}
 	status := DiskStatus{

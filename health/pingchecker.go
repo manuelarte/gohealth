@@ -2,8 +2,8 @@ package health
 
 type PingChecker struct{}
 
-func (checker *PingChecker) CheckHealth() HealthCheckResult {
-	result := HealthCheckResult{Service: "ping"}
+func (checker *PingChecker) CheckHealth() (result HealthCheckResult) {
+	result.Service = "ping"
 	result.Status = UP
-	return result
+	return
 }

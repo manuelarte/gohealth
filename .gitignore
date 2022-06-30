@@ -16,3 +16,6 @@
 
 .hadolint.yaml
 .markdownlint.yaml
+
+coverage.txt
+coverage.html

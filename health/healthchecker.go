@@ -2,6 +2,7 @@ package health
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 )
 
@@ -18,7 +19,7 @@ type ComponentDetails struct {
 }
 
 type HealthCheckResult struct {
-	*ComponentDetails
+	ComponentDetails
 	Service string // Service - The name of the service being checked
 }
 
@@ -42,16 +43,16 @@ type HealthCheckerResponse struct {
 	Components map[string]ComponentDetails `json:"components"`
 }
 
-// HandleHealthcheckError utility function for handling errors since we're not intending to use a logger for this module
-func HandleHealthcheckError(service string, err error) HealthCheckResult {
-	details := map[string]string{"error": err.Error()}
-	result := HealthCheckResult{
-		Service: service,
-	}
-	result.Details = details
-	result.Status = DOWN
+type HealthCheckError struct {
+	Message string
+}
 
-	return result
+// HandleHealthcheckError utility function for handling errors since we're not intending to use a logger for this module
+func HandleHealthcheckError(service string, err error) (result HealthCheckResult) {
+	result.Service = service
+	result.Details = &HealthCheckError{Message: fmt.Sprintf("error: %v", err)}
+	result.Status = DOWN
+	return
 }
 
 /*
