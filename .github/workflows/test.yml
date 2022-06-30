@@ -27,6 +27,7 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v1.6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           args: >
             -Dsonar.organization=mikeyGlitz
