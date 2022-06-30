@@ -1,0 +1,5 @@
+issues:
+  exclude-rules:
+    - path: health/healthchecker.go
+      linters:
+        - errcheck
