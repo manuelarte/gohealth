@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  lint:
+  test:
     runs-on: ubuntu-latest
     steps:
     - name: Run golangci-lint
@@ -21,9 +21,6 @@ jobs:
       # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
       uses: SonarSource/sonarcloud-github-action@v1.6
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@v3
 
     - name: Set up Go
