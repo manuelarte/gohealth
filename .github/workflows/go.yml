@@ -7,7 +7,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   test:
     runs-on: ubuntu-latest
     steps:
@@ -20,13 +19,11 @@ jobs:
       # You may pin to the exact commit or the version.
       # uses: SonarSource/sonarcloud-github-action@de2e56b42aa84d0b1c5b622644ac17e505c9a049
       uses: SonarSource/sonarcloud-github-action@v1.6
-
     - uses: actions/checkout@v3
 
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
         go-version: 1.18
-
     - name: Test
       run: go test -v ./...
