@@ -3,9 +3,9 @@ module gitlab.com/mikeyGlitz/gohealth
 go 1.17
 
 require (
+	github.com/boumenot/gocover-cobertura v1.2.0
 	github.com/golangci/golangci-lint v1.46.2
 	github.com/stretchr/testify v1.8.0
-	github.com/t-yuki/gocover-cobertura v0.0.0-20180217150009-aaee18c8195c
 	gotest.tools/gotestsum v1.8.1
 )
 
