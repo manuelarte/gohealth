@@ -18,7 +18,7 @@ test:
     - go mod tidy
     - go test ./... -coverprofile coverage.txt -covermode count
     - go run gotest.tools/gotestsum --junitfile report.xml format testname
-    - go run github.com/boumenot/gocover-cobertura < coverage.txt > cobertura.xml
+    - go run github.com/t-yuki/gocover-cobertura < coverage.txt > coverage.xml
   artifacts:
     when: always
     reports:

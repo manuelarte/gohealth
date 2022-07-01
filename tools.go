@@ -3,7 +3,7 @@
 package main
 
 import (
-	_ "github.com/boumenot/gocover-cobertura"
 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
+	_ "github.com/t-yuki/gocover-cobertura"
 	_ "gotest.tools/gotestsum"
 )
