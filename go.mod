@@ -1,8 +1,13 @@
-module github.com/mikeyGlitz/gohealth
+module gitlab.com/mikeyGlitz/gohealth
 
 go 1.17
 
-require github.com/golangci/golangci-lint v1.46.2
+require (
+	github.com/boumenot/gocover-cobertura v1.2.0
+	github.com/golangci/golangci-lint v1.46.2
+	github.com/stretchr/testify v1.8.0
+	gotest.tools/gotestsum v1.8.1
+)
 
 require (
 	4d63.com/gochecknoglobals v0.1.0 // indirect
@@ -29,6 +34,7 @@ require (
 	github.com/daixiang0/gci v0.3.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/denis-tingaikin/go-header v0.4.3 // indirect
+	github.com/dnephin/pflag v1.0.7 // indirect
 	github.com/esimonov/ifshort v1.0.4 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
 	github.com/fatih/color v1.13.0 // indirect
@@ -58,6 +64,7 @@ require (
 	github.com/golangci/revgrep v0.0.0-20210930125155-c22e5001d4f2 // indirect
 	github.com/golangci/unconvert v0.0.0-20180507085042-28b1c447d1f4 // indirect
 	github.com/google/go-cmp v0.5.7 // indirect
+	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/gordonklaus/ineffassign v0.0.0-20210914165742-4cc7213b9bc8 // indirect
 	github.com/gostaticanalysis/analysisutil v0.7.1 // indirect
 	github.com/gostaticanalysis/comment v1.4.2 // indirect
@@ -72,6 +79,7 @@ require (
 	github.com/jgautheron/goconst v1.5.1 // indirect
 	github.com/jingyugao/rowserrcheck v1.1.1 // indirect
 	github.com/jirfag/go-printf-func-name v0.0.0-20200119135958-7558a9eaa5af // indirect
+	github.com/jonboulle/clockwork v0.2.2 // indirect
 	github.com/julz/importas v0.1.0 // indirect
 	github.com/kisielk/errcheck v1.6.0 // indirect
 	github.com/kisielk/gotool v1.0.0 // indirect
@@ -132,7 +140,6 @@ require (
 	github.com/ssgreg/nlreturn/v2 v2.2.1 // indirect
 	github.com/stbenjam/no-sprintf-host-port v0.1.1 // indirect
 	github.com/stretchr/objx v0.4.0 // indirect
-	github.com/stretchr/testify v1.8.0 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	github.com/sylvia7788/contextcheck v1.0.4 // indirect
 	github.com/tdakkota/asciicheck v0.1.1 // indirect
@@ -150,6 +157,7 @@ require (
 	golang.org/x/mod v0.6.0-dev.0.20220106191415-9b9b3d81d5e3 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220422013727-9388b58f7150 // indirect
+	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.11-0.20220316014157-77aa08bb151a // indirect
 	golang.org/x/xerrors v0.0.0-20220411194840-2f41105eb62f // indirect

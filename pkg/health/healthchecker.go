@@ -6,11 +6,11 @@ import (
 	"net/http"
 )
 
-type HealthStatus int
+type HealthStatus string
 
 const (
-	DOWN HealthStatus = 0 // DOWN	- The service is not healthy
-	UP   HealthStatus = 1 // UP		- The service is healthy
+	DOWN HealthStatus = "DOWN" // DOWN	- The service is not healthy
+	UP   HealthStatus = "UP"   // UP		- The service is healthy
 )
 
 type ComponentDetails struct {
@@ -81,8 +81,8 @@ func HandleHealthchecks(writer http.ResponseWriter, request *http.Request) {
 		status = http.StatusInternalServerError
 	}
 
+	writer.Header().Add("Content-Type", "application/json")
 	writer.WriteHeader(status)
 
-	// trunk-ignore(golangci-lint/errcheck)
-	json.NewEncoder(writer).Encode(payload)
+	_ = json.NewEncoder(writer).Encode(payload)
 }

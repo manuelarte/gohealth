@@ -33,11 +33,11 @@
         "VisualStudioExptTeam.vscodeintellicode",
         "streetsidesoftware.code-spell-checker",
         "eamodio.gitlens",
-        "GitHub.vscode-pull-request-github",
+        "GitLab.gitlab-workflow",
         "donjayamanne.githistory",
         "Gruntfuggly.todo-tree",
         "docsmsft.docs-authoring-pack",
-		"trunk.io"
+        "trunk.io"
       ]
     }
   },
