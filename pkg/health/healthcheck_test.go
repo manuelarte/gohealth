@@ -75,7 +75,7 @@ func (suite *HealthcheckerSuite) TestHealthCheckerBadChecker() {
 
 	HandleHealthchecks(writer, request)
 
-	assert.Equal(suite.T(), 500, writer.Result().StatusCode)
+	assert.Equal(suite.T(), 503, writer.Result().StatusCode)
 
 	var response HealthCheckerResponse
 	json.NewDecoder(writer.Body).Decode(&response)

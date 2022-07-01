@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// HandleEnv - Prints out the current environment variables and their
+// values to the response
 func HandleEnv(writer http.ResponseWriter, request *http.Request) {
 	envMap := make(map[string]string)
 	for _, env := range os.Environ() {

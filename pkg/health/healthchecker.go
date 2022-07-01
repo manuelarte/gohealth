@@ -56,7 +56,7 @@ func HandleHealthcheckError(service string, err error) (result HealthCheckResult
 }
 
 /*
-	HandleHealthchecks - Composes all of the individual healthchecks into a single response object and sends it out
+	HandleHealthchecks - Composes all of the individual healthchecks into a single response object and sends the response
 */
 func HandleHealthchecks(writer http.ResponseWriter, request *http.Request) {
 	// Collect the healthcheck results
@@ -78,7 +78,7 @@ func HandleHealthchecks(writer http.ResponseWriter, request *http.Request) {
 	payload.Status = topLevelStatus
 	status := http.StatusOK
 	if topLevelStatus == DOWN {
-		status = http.StatusInternalServerError
+		status = http.StatusServiceUnavailable
 	}
 
 	writer.Header().Add("Content-Type", "application/json")
