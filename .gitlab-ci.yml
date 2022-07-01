@@ -19,7 +19,7 @@ test:
     - go run github.com/golangci/golangci-lint/cmd/golangci-lint run
     - go test ./... -coverprofile coverage.txt -covermode count
     - go run gotest.tools/gotestsum --junitfile report.xml --format testname
-    - go run github.com/t-yuki/gocover-cobertura < coverage.txt > coverage.xml
+    - go run github.com/t-yuki/gocover-cobertura < coverage.txt > cobertura.xml
   artifacts:
     when: always
     reports:
