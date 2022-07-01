@@ -10,7 +10,7 @@ test:
   image: golang:1.17-alpine
   script:
     - go mod tidy
-    - go test ./.. -coverprofile coverage.txt -covermode count
+    - go test ./... -coverprofile coverage.txt -covermode count
     - go run gotest.tools/gotestsum --junitfile report.xml format testname
     - go run github.com/boumenot/gocover-cobertura < coverage.txt > cobertura.xml
   artifacts:
