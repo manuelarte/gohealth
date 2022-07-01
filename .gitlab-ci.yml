@@ -8,6 +8,8 @@ include:
 test:
   stage: test
   image: golang:1.17-alpine
+  before_script:
+    - apk update && apk add --no-cache gcc g++
   script:
     - go mod tidy
     - go test ./... -coverprofile coverage.txt -covermode count
