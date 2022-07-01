@@ -1,6 +1,6 @@
 stages:
   - test
-  - publish
+  - release
 
 include:
 - template: Security/SAST.gitlab-ci.yml
@@ -10,6 +10,8 @@ test:
   image: golang:1.17-alpine
   before_script:
     - apk update && apk add --no-cache gcc g++
+  variables: 
+    GO111MODULE: on
   script:
     - go mod tidy
     - go test ./... -coverprofile coverage.txt -covermode count
