@@ -3,7 +3,7 @@ stages:
   - release
 
 include:
-- template: Security/SAST.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
 
 test:
   stage: test
@@ -11,7 +11,7 @@ test:
   before_script:
     - apk update && apk add --no-cache gcc g++ libstdc++ ca-certificates
     - update-ca-certificates
-  variables: 
+  variables:
     CGO_ENABLED: "1"
     GO111MODULE: "on"
   script:

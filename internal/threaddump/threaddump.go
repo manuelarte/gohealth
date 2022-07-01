@@ -11,6 +11,7 @@ var lookup = pprof.Lookup
 
 // HandleThreaddump - Prints out a plaintext snapshot of the process's
 // current-running thread stats
+// https://forum.golangbridge.org/t/how-to-take-thread-dump-in-golang/11417/4
 func HandleThreaddump(writer http.ResponseWriter, request *http.Request) {
 	var buff bytes.Buffer
 	profile := lookup("goroutine")
