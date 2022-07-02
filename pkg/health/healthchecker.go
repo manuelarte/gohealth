@@ -55,6 +55,8 @@ func HandleHealthcheckError(service string, err error) (result HealthCheckResult
 	return
 }
 
+var DefaultHealthCheckers = []HealthChecker{&DiskStatusChecker{}, &PingChecker{}}
+
 /*
 	HandleHealthchecks - Composes all of the individual healthchecks into a single response object and sends the response
 */

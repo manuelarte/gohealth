@@ -290,7 +290,7 @@ func readMemStats() MemStats {
 }
 
 // HandleMetrics - Writes the stack and heap metrics out to the response
-func HandleMetrics(writer http.ResponseWriter, request http.Request) {
+func HandleMetrics(writer http.ResponseWriter, request *http.Request) {
 	stats := readMemStats()
 	writer.Header().Add("Content-Type", "application/json")
 	_ = json.NewEncoder(writer).Encode(&stats)

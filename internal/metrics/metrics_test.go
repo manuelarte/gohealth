@@ -12,7 +12,7 @@ func TestMetrics(t *testing.T) {
 	testWriter := httptest.NewRecorder()
 	testRequest := httptest.NewRequest("GET", "/metrics", nil)
 
-	HandleMetrics(testWriter, *testRequest)
+	HandleMetrics(testWriter, testRequest)
 	assert.Equal(t, 200, testWriter.Result().StatusCode)
 
 	var res MemStats
