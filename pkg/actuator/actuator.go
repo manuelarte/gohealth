@@ -13,19 +13,19 @@ import (
 	"gitlab.com/mikeyGlitz/gohealth/pkg/info"
 )
 
-type endpoint string
+type Endpoint string
 
 const (
-	INFO       endpoint = "info"
-	ENV        endpoint = "env"
-	THREADDUMP endpoint = "threaddump"
-	SHUTDOWN   endpoint = "shutdown"
-	METRICS    endpoint = "metrics"
-	HEALTH     endpoint = "health"
+	INFO       Endpoint = "info"
+	ENV        Endpoint = "env"
+	THREADDUMP Endpoint = "threaddump"
+	SHUTDOWN   Endpoint = "shutdown"
+	METRICS    Endpoint = "metrics"
+	HEALTH     Endpoint = "health"
 )
 
 // All endpoints supported by the actuator
-var allEndpoints = []endpoint{
+var allEndpoints = []Endpoint{
 	INFO,
 	ENV,
 	THREADDUMP,
@@ -35,7 +35,7 @@ var allEndpoints = []endpoint{
 }
 
 type Config struct {
-	Endpoints      []endpoint
+	Endpoints      []Endpoint
 	HealthCheckers []health.HealthChecker
 }
 
@@ -61,7 +61,7 @@ func GetHandler(config *Config) http.HandlerFunc {
 	}
 
 	// Prepare the list of endpoints based on what is configured
-	handlerMap := make(map[endpoint]http.HandlerFunc)
+	handlerMap := make(map[Endpoint]http.HandlerFunc)
 	for _, ep := range config.Endpoints {
 		switch ep {
 		case INFO:
@@ -108,7 +108,7 @@ func GetHandler(config *Config) http.HandlerFunc {
 		}
 
 		// Match the handler with the appropriate endpoint
-		if handler, ok := handlerMap[endpoint(entrypoint)]; ok {
+		if handler, ok := handlerMap[Endpoint(entrypoint)]; ok {
 			handler(writer, request)
 			return
 		}

@@ -23,6 +23,8 @@ type BySizeElem struct {
 }
 
 // MemStats - MemStats is ripped right out of the golang runtime package
+// JSON tags have been added
+// https://pkg.go.dev/runtime#MemStats
 type MemStats struct {
 
 	// Alloc is bytes of allocated heap objects.
