@@ -37,5 +37,5 @@ sonar:
       -Dsonar.organization=mikeyglitz \
       -Dsonar.projectKey=mikeyglitz_gohealth \
       -Dsonar.sources=. \
-      -Dsonar.host.url=https://sonarcloud.io
+      -Dsonar.host.url=https://sonarcloud.io \
       -Dsonar.token=$SONAR_TOKEN
