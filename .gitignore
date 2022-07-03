@@ -13,3 +13,10 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+.hadolint.yaml
+.markdownlint.yaml
+
+coverage.txt
+coverage.html
+.trunk
