@@ -37,7 +37,7 @@ sonar:
   script:
     - |
       sonar-scanner \
-      -Dsonar.organization=mikeyglitz \
+      -Dsonar.organization=mikeyglitz-gl \
       -Dsonar.projectKey=mikeyglitz_gohealth \
       -Dsonar.sources=. \
       -Dsonar.host.url=https://sonarcloud.io \
