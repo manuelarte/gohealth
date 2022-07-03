@@ -33,20 +33,14 @@ sonar:
   image:
     name: sonarsource/sonar-scanner-cli
     entrypoint: [""]
-  only:
-    - main
-    - merge_requests
   cache:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
-  script:
-    - |
-      sonar-scanner \
-      -Dsonar.organization=mikeyglitz-gl \
-      -Dsonar.projectKey=mikeyglitz_gohealth \
-      -Dsonar.sources=. \
-      -Dsonar.token=$SONAR_TOKEN
+  script: sonar-scanner
+  only:
+    - main
+    - merge_request
 
 release_job:
   stage: release
