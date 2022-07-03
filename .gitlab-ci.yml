@@ -22,6 +22,8 @@ test:
     - go run github.com/boumenot/gocover-cobertura < coverage.txt > cobertura.xml
   artifacts:
     when: always
+    paths:
+      - coverage.txt
     reports:
       junit: report.xml
       coverage_report:
@@ -41,6 +43,8 @@ sonar:
   only:
     - main
     - merge_request
+  dependencies:
+    - test
 
 release_job:
   stage: release
