@@ -25,7 +25,7 @@ by the `http.HandlerFunc` in the `net/http` library.
 
 ```go
 handler := actuator.GetHandler(&actuator.Config{})
-http.Handle("/actuator", handler)
+http.Handle("/actuator/", handler)
 ```
 
 ### Gin Handler
@@ -33,7 +33,7 @@ http.Handle("/actuator", handler)
 ```go
 handler := actuator.GetHandler(&actuator.Config{})
 router := gin.Default()
-r.Get("/actuator", func(ctx *gin.Context) {
+router.Get("/actuator", func(ctx *gin.Context) {
     handler(ctx.Writer, ctx.Request)
 })
 ```
