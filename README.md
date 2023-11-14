@@ -1,4 +1,6 @@
-# goctuator
+:exclamation: This is a fork from [GoHealth](https://gitlab.com/mikeyGlitz/gohealth)
+
+# gohealth
 
 Monitoring is an important function for monitoring and observing
 Application Program Interfaces (APIs). This project creates a series
@@ -14,7 +16,7 @@ and [go-actuator](https://github.com/sinhashubham95/go-actuator).
 To use this library, install the go module:
 
 ```bash
-go get gitlab.com/mikeyGlitz/gohealth
+go get github.com/manuelarte/gohealth
 ```
 
 After the module has been installed, import the handler into your framework.
@@ -33,7 +35,7 @@ http.Handle("/actuator/", handler)
 ```go
 handler := actuator.GetHandler(&actuator.Config{})
 router := gin.Default()
-router.Get("/actuator", func(ctx *gin.Context) {
+router.Get("/actuator/*endpoint", func(ctx *gin.Context) {
     handler(ctx.Writer, ctx.Request)
 })
 ```
