@@ -52,7 +52,7 @@ type Info struct {
 
 // HandleInfo - handles compiling the info provided by flags into a JSON string and
 // writes the string out to the response
-func HandleInfo(writer http.ResponseWriter, request *http.Request) {
+func HandleInfo(writer http.ResponseWriter, _ *http.Request) {
 	// Prepare the response payload
 	payload := Info{
 		Application: AppInfo{
@@ -66,6 +66,7 @@ func HandleInfo(writer http.ResponseWriter, request *http.Request) {
 			Branch:        Branch,
 			RepositoryUrl: RepositoryUrl,
 			CommitTime:    CommitTime,
+			BuildTime:     BuildTime,
 		},
 		Runtime: RuntimeInfo{
 			Arch:           Arch,
@@ -74,5 +75,6 @@ func HandleInfo(writer http.ResponseWriter, request *http.Request) {
 		},
 	}
 
+	writer.Header().Add("Content-Type", "application/json")
 	_ = json.NewEncoder(writer).Encode(payload)
 }
