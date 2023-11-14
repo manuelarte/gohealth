@@ -8,9 +8,9 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/manuelarte/gohealth/pkg/health"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	"gitlab.com/mikeyGlitz/gohealth/pkg/health"
 )
 
 type ServerSuite struct {

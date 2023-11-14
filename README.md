@@ -177,7 +177,7 @@ This endpoint exposes compile-time information about the API binary
     "commit_time": "",
     "build_time": "",
     "branch": "main",
-    "url": "https://gitlab.com/jdoe/example-api"
+    "url": "https://github.com/manueldoncelmartos/example-api"
   },
   "runtime": {
     "arch": "x86_64",
@@ -194,7 +194,7 @@ when you build your application.
 Variables are set with [ldflags](https://www.digitalocean.com/community/tutorials/using-ldflags-to-set-version-information-for-go-applications).
 
 ```bash
-go build -ldflags="-X gitlab.com/mikeyGlitz/gohealth/pkg/info.AppName=${appName} <other flags>"
+go build -ldflags="-X github.com/manueldoncelmartos/gohealth/pkg/info.AppName=${appName} <other flags>"
 ```
 
 The `/info` endpoint utilizes the following variables:

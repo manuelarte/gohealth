@@ -5,12 +5,12 @@ import (
 	"net/http"
 	"strings"
 
-	"gitlab.com/mikeyGlitz/gohealth/internal"
-	"gitlab.com/mikeyGlitz/gohealth/internal/env"
-	"gitlab.com/mikeyGlitz/gohealth/internal/metrics"
-	"gitlab.com/mikeyGlitz/gohealth/internal/threaddump"
-	"gitlab.com/mikeyGlitz/gohealth/pkg/health"
-	"gitlab.com/mikeyGlitz/gohealth/pkg/info"
+	"github.com/manuelarte/gohealth/internal"
+	"github.com/manuelarte/gohealth/internal/env"
+	"github.com/manuelarte/gohealth/internal/metrics"
+	"github.com/manuelarte/gohealth/internal/threaddump"
+	"github.com/manuelarte/gohealth/pkg/health"
+	"github.com/manuelarte/gohealth/pkg/info"
 )
 
 type Endpoint string

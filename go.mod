@@ -1,4 +1,4 @@
-module gitlab.com/mikeyGlitz/gohealth
+module github.com/manuelarte/gohealth
 
 go 1.17
 
