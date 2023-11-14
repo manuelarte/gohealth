@@ -20,3 +20,5 @@
 coverage.txt
 coverage.html
 .trunk
+
+/.idea
