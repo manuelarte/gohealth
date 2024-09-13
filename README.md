@@ -1,5 +1,7 @@
 :exclamation: This is a fork from [GoHealth](https://gitlab.com/mikeyGlitz/gohealth)
 
+[![Go](https://github.com/manuelarte/gohealth/actions/workflows/go.yml/badge.svg)](https://github.com/manuelarte/gohealth/actions/workflows/go.yml)
+
 # gohealth
 
 Monitoring is an important function for monitoring and observing
