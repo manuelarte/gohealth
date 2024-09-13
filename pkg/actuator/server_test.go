@@ -3,7 +3,7 @@ package actuator
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -23,13 +23,16 @@ func (suite *ServerSuite) TestRootEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(body io.ReadCloser) {
+		_ = body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
 	var resBody map[string][]string
-	_ = json.NewDecoder(res.Body).Decode(&resBody)
-
-	assert.Equal(suite.T(), len(allEndpoints), len(resBody["_links"]))
+	err = json.NewDecoder(res.Body).Decode(&resBody)
+	if assert.NoError(suite.T(), err) {
+		assert.Equal(suite.T(), len(allEndpoints), len(resBody["_links"]))
+	}
 }
 
 func (suite *ServerSuite) TestHealthEndpoint() {
@@ -38,7 +41,9 @@ func (suite *ServerSuite) TestHealthEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(Body io.ReadCloser) {
+		_ = Body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
 	var response health.HealthCheckerResponse
@@ -55,13 +60,17 @@ func (suite *ServerSuite) TestEnvEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(body io.ReadCloser) {
+		_ = body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
 	var response map[string]string
-	_ = json.NewDecoder(res.Body).Decode(&response)
-	assert.NotNil(suite.T(), response)
-	assert.Greater(suite.T(), len(response), 0)
+	err = json.NewDecoder(res.Body).Decode(&response)
+	if assert.NoError(suite.T(), err) {
+		assert.NotNil(suite.T(), response)
+		assert.Greater(suite.T(), len(response), 0)
+	}
 }
 
 func (suite *ServerSuite) TestThreaddumpEndpoint() {
@@ -70,10 +79,12 @@ func (suite *ServerSuite) TestThreaddumpEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(body io.ReadCloser) {
+		_ = body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
-	resBytes, err := ioutil.ReadAll(res.Body)
+	resBytes, err := io.ReadAll(res.Body)
 	if err != nil {
 		assert.FailNow(suite.T(), "read error", err)
 	}
@@ -86,10 +97,12 @@ func (suite *ServerSuite) TestMetricsEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(body io.ReadCloser) {
+		_ = body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
-	buff, err := ioutil.ReadAll(res.Body)
+	buff, err := io.ReadAll(res.Body)
 	if err != nil {
 		assert.FailNow(suite.T(), "read error", err)
 	}
@@ -104,10 +117,12 @@ func (suite *ServerSuite) TestInfoEndpoint() {
 	if err != nil {
 		assert.FailNow(suite.T(), "request error", err)
 	}
-	defer res.Body.Close()
+	defer func(body io.ReadCloser) {
+		_ = body.Close()
+	}(res.Body)
 
 	assert.Equal(suite.T(), 200, res.StatusCode)
-	buff, err := ioutil.ReadAll(res.Body)
+	buff, err := io.ReadAll(res.Body)
 	if err != nil {
 		assert.FailNow(suite.T(), "read error", err)
 	}
