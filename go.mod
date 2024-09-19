@@ -1,6 +1,6 @@
 module github.com/manuelarte/gohealth
 
-go 1.17
+go 1.18
 
 require (
 	github.com/boumenot/gocover-cobertura v1.2.0
