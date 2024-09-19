@@ -24,7 +24,7 @@ type HealthCheckResult struct {
 }
 
 /*
-	HealthChecker - An interface for a listener which is utilized to check the running status of a service
+HealthChecker - An interface for a listener which is utilized to check the running status of a service
 */
 type HealthChecker interface {
 	// CheckHealth - checks the service for its current running status
@@ -58,9 +58,9 @@ func HandleHealthcheckError(service string, err error) (result HealthCheckResult
 var DefaultHealthCheckers = []HealthChecker{&DiskStatusChecker{}, &PingChecker{}}
 
 /*
-	HandleHealthchecks - Composes all of the individual healthchecks into a single response object and sends the response
+HandleHealthchecks - Composes all of the individual healthchecks into a single response object and sends the response
 */
-func HandleHealthchecks(writer http.ResponseWriter, request *http.Request) {
+func HandleHealthchecks(writer http.ResponseWriter, _ *http.Request) {
 	// Collect the healthcheck results
 	topLevelStatus := UP
 	payload := HealthCheckerResponse{Components: make(map[string]ComponentDetails)}

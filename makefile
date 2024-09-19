@@ -1,5 +1,5 @@
 lint:
-	@go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.46.2 run ./...
+	@go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0 run ./...
 
 test: lint
 	@go test ./... -coverprofile=coverage.txt
