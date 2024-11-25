@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/boumenot/gocover-cobertura v1.3.0
 	github.com/golangci/golangci-lint v1.62.0
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	gotest.tools/gotestsum v1.12.0
 )
 
