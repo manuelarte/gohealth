@@ -1,13 +1,14 @@
 module github.com/manuelarte/gohealth
 
-go 1.18
+go 1.23.0
+
 toolchain go1.24.1
 
 require (
 	github.com/boumenot/gocover-cobertura v1.3.0
 	github.com/golangci/golangci-lint v1.64.8
 	github.com/stretchr/testify v1.10.0
-	gotest.tools/gotestsum v1.12.1
+	gotest.tools/gotestsum v1.12.2
 )
 
 require (
